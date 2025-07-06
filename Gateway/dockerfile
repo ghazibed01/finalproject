@@ -1,0 +1,14 @@
+# Utiliser une image de base Java
+FROM openjdk:17-jdk-alpine
+
+# Définir le répertoire de travail
+WORKDIR /app
+
+# Copier le fichier JAR généré dans le conteneur
+COPY target/Gateway-0.0.1-SNAPSHOT.jar /app/mon-microserviceGateway.jar
+
+# Exposer le port utilisé par l'application
+EXPOSE 8098
+
+# Commande pour exécuter le microservice
+ENTRYPOINT ["java", "-jar", "/app/mon-microserviceGateway.jar"]

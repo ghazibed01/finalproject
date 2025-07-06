@@ -1,0 +1,48 @@
+eureka:
+  client:
+    register-with-eureka: false
+server:
+  port: 8098
+spring:
+  application:
+    name: gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+#      routes:
+#        - id: allergies
+#          uri: http://localhost:8090
+#          predicates:
+#            - path=/api/v1/allergies/**
+#        - id: Analyses
+#          uri: http://localhost:8090
+#          predicates:
+#            - path=/bioanalyses/**
+#        - id: Surigicalprocedure
+#          uri: http://localhost:8090
+#          predicates:
+#            - path=/procedures/**
+#        - id: Patient
+#          uri: http://localhost:8091
+#          predicates:
+#            - path=/patients/**
+#        - id: Maladies
+#          uri: http://localhost:8090/icd10
+#          predicates:
+#            - path=/icd10/**
+#        - id: Vaccination
+#          uri: http://localhost:8090/vaccination
+#          predicates:
+#            - path=/vaccination/**
+#        - id: Medication
+#          uri: http://localhost:8090/medication
+#          predicates:
+#            - path=/medication/**
+#        - id: Dossier
+#          uri: http://localhost:8096/dossiers
+#          predicates:
+#            - path=/dossiers/**
+
+
