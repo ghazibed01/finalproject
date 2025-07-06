@@ -1,0 +1,29 @@
+<!-- settings-dialog.component.html -->
+
+<div class="dialog-header"  style="background-image: url(assets/images/settings.gif);">
+ 
+</div>
+<div class="dialog-content">
+  <div mat-dialog-content>
+     
+    <div class="example-container">
+      <h1 class="dialog-title"> <mat-icon class="example-tab-icon msr-2">settings</mat-icon>Update Your Password <mat-icon class="example-tab-icon msr-2">settings</mat-icon></h1>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label >Username</mat-label>
+        <input matInput [value]="storedUser.username"  [disabled]="true" class="username-input">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Current Password</mat-label>
+        <input matInput type="password" [(ngModel)]="currentPassword">
+      </mat-form-field>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>New Password</mat-label>
+        <input matInput type="password" [(ngModel)]="newPassword">
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions>
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="updatePassword()">Save</button>
+  </div>
+</div>

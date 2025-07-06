@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/Gateway/pom.xml" />
+        <option value="$PROJECT_DIR$/Discovery/pom.xml" />
+        <option value="$PROJECT_DIR$/Config-Server/pom.xml" />
+        <option value="$PROJECT_DIR$/Parameterization/pom.xml" />
+        <option value="$PROJECT_DIR$/Authentifcation/pom.xml" />
+        <option value="$PROJECT_DIR$/Authentifcation/Authentifcation/pom.xml" />
+        <option value="$PROJECT_DIR$/Security/Security/pom.xml" />
+        <option value="$PROJECT_DIR$/Anesthesia/pom.xml" />
+        <option value="$PROJECT_DIR$/Patient/pom.xml" />
+        <option value="$PROJECT_DIR$/RhLinesoft/pom.xml" />
+        <option value="$PROJECT_DIR$/AuthLinesoft/pom.xml" />
+        <option value="$PROJECT_DIR$/AuthLinsoft/pom.xml" />
+        <option value="$PROJECT_DIR$/RhLinsoft/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_19" default="true" project-jdk-name="19" project-jdk-type="JavaSDK" />
+</project>

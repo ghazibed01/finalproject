@@ -1,0 +1,57 @@
+
+  <mat-spinner color="primary" diameter="60" strokeWidth="6" *ngIf="isSubmitting"></mat-spinner>
+  <!-- style="background-image: url(assets/images/bg.jpg);background-repeat: no-repeat; background-position: center;background-size: cover;" -->
+<div class="card" >
+  <div class="modalHeader">
+    <button mat-icon-button (click)="dialogRef.close()" class="modal-close-button" aria-label="Close dialog" >
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+<div class="parent" *ngIf="!isSubmitting">
+  <div class="child">
+    <h2 class="form-caption">Absence Form</h2>
+    <form [formGroup]="absenceForm" (ngSubmit)="submitForm()">
+      <div class="form-input">
+      </div>
+      <div class="form-input">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label> Description</mat-label>
+          <input matInput placeholder="absence Description" formControlName="description" />
+          <mat-error *ngIf="absenceForm.get('description')?.invalid && (absenceForm.get('description')?.dirty || absenceForm.get('description')?.touched)">
+            Absence Description is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-input">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>Start Date</mat-label>
+          <input matInput [matDatepicker]="startDatePicker" placeholder="Start Date" formControlName="startDate" />
+          <mat-datepicker-toggle matSuffix [for]="startDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #startDatePicker></mat-datepicker>
+          <mat-error *ngIf="absenceForm.get('startDate')?.invalid && (absenceForm.get('startDate')?.dirty || absenceForm.get('startDate')?.touched)">
+            Start Date is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <div class="form-input">
+        <mat-form-field appearance="fill" class="full-width">
+          <mat-label>End Date</mat-label>
+          <input matInput [matDatepicker]="endDatePicker" placeholder="End Date" formControlName="endDate" />
+          <mat-datepicker-toggle matSuffix [for]="endDatePicker"></mat-datepicker-toggle>
+          <mat-datepicker #endDatePicker></mat-datepicker>
+          <mat-error *ngIf="absenceForm.get('endDate')?.invalid && (absenceForm.get('endDate')?.dirty || absenceForm.get('endDate')?.touched)">
+            End Date is required
+          </mat-error>
+        </mat-form-field>
+      </div>
+
+      <button mat-raised-button color="primary" class="form-button" type="submit" [disabled]="absenceForm.invalid">
+        Submit
+      </button>
+    </form>
+  </div>
+</div>
+</div>
+

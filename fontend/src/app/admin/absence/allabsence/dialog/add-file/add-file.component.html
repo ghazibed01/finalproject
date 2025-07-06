@@ -1,0 +1,20 @@
+<section class="upload-section">
+  <form (submit)="uploadFile(); $event.preventDefault()">
+    <!-- UML File Upload -->
+    <div class="file-upload">
+      <input type="file" id="umlFile" (change)="onFileSelected($event)" hidden>
+      <label for="umlFile">Choose Justification file</label>
+      <div *ngIf="FileName" class="file-name">
+        {{ FileName }}
+      </div>
+    </div>
+
+    
+
+    <!-- Upload and Cancel Buttons -->
+    <div class="actions">
+      <button type="button" mat-raised-button color="primary" [disabled]="!File" (click)="uploadFile()">Upload Justification </button>
+      <button type="button" mat-button (click)="close()">Cancel</button>
+    </div>
+  </form>
+</section>

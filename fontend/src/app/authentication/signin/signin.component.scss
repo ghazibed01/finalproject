@@ -1,0 +1,88 @@
+.auth-container {
+  height: 100vh;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+.auth-main {
+  width: 100%;
+  height: 100vh;
+  margin: 0;
+}
+
+.left-img {
+  height: 100vh;
+  background-image: url('/assets/images/home.jpg');
+  background-size: cover;
+  background-position: center;
+}
+
+.auth-form-section {
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  padding: 2rem;
+  height: 100vh;
+}
+
+.form-section {
+  max-width: 800px;
+  margin: 0 auto;
+  transform: scale(1.15);
+}
+
+.auth-wrapper {
+  text-align: center;
+  position: relative;
+  width: 100%;
+
+}
+.emoji {
+  font-size: 3.5rem;
+  margin-bottom: 3rem; /* augmenté ici */
+}
+
+.form-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem; /* ajouté ou augmenté */
+  color: #1f1f1f;
+}
+
+.form-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2.5rem; /* légèrement plus d’espace */
+}
+
+/* ESPACE ENTRE LES CHAMPS DU FORMULAIRE */
+mat-form-field {
+  display: block;
+  margin-bottom: 1.5rem; /* ajoute de l’espace entre les champs */
+}
+
+input.mat-input-element {
+  padding: 1rem 1rem;
+  font-size: 1rem;
+}
+
+mat-icon {
+  color: #6c757d;
+}
+
+.auth-form-btn {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  background-color: #4d91f7;
+  color: white;
+  border-radius: 8px;
+}
+
+.link-forgot {
+  font-size: 0.875rem;
+  color: #6c757d;
+  text-decoration: underline;
+}

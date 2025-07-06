@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Résumé de vos tickets</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            background-color: white;
+            padding: 25px;
+            border-radius: 8px;
+            max-width: 600px;
+            margin: auto;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .summary {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .highlight {
+            font-size: 24px;
+            font-weight: bold;
+            color: #007bff;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>Bonjour <span th:text="${username}">Utilisateur</span>,</h2>
+    <p>Voici le résumé de vos tickets repas pour le mois de <strong th:text="${month} + ' ' + ${year}">...</strong> :</p>
+    <div class="summary">
+        <p class="highlight" th:text="${ticketCount} + ' tickets utilisés'">0 tickets utilisés</p>
+    </div>
+    <p>Merci de vous présenter au bureau RH pour les récupérer.</p>
+    <p>Bien cordialement,<br/>L'équipe RH Linsoft</p>
+</div>
+</body>
+</html>

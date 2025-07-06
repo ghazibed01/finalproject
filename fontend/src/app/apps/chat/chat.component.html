@@ -1,0 +1,90 @@
+<section class="content"> 
+  <div class="img" style="background-image: url(assets/images/chat.jpg);background-repeat: no-repeat; background-position: center;">
+  <div class="content-block">
+   
+    <div class="block-header">
+      <app-breadcrumb [title]="'Chat'" [items]="['Apps']" [active_item]="'Chat'"></app-breadcrumb>
+    </div>
+    <div class="row">
+      <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+        <div class="card">
+          <div class="body">
+            <div id="plist" class="people-list">
+              <div class="form-line m-b-15">
+                <input type="text" class="form-control" placeholder="Search..." />
+              </div>
+              <div class="tab-content">
+                <ng-scrollbar style="height: 590px" visibility="hover">
+                  <div id="chat_user">
+                    <ul class="chat-list list-unstyled m-b-0">
+                      <li *ngFor="let user of users" (click)="selectUser(user)" [class.active]="selectedUser?.id === user.id" class="clearfix">
+                      <img [src]="convertImageData(user.imageData)">
+                        <div class="about"> 
+                           
+                          <div class="name">{{ user.username }}</div>
+                          <div class="status">
+                            <i class="material-icons" [ngClass]="{ 'online': user.status === 'ONLINE', 'offline': user.status !== 'ONLINE' }">fiber_manual_record</i>
+                            {{ user.status === 'ONLINE' ? 'online' : 'offline' }}
+                          </div>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </ng-scrollbar>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8" *ngIf="selectedUser">
+        <div class="card" style="background-image: url(assets/images/bg.jpg);background-repeat: no-repeat; background-position: center;background-size: cover;">
+          <div class="chat">
+            <div class="chat-header clearfix">
+              <div class="user-info">
+                <img [src]="convertedImg">
+                <span class="username">{{ selectedUser.username }}</span>
+              </div>
+              <div class="chat-about">
+                <div class="chat-num-messages">{{ messages.length }} new messages</div>
+              </div>
+            </div>
+            <ng-scrollbar style="height: 450px" visibility="hover">
+              <div class="chat-history" id="chat-conversation">
+                <ul>
+                  <li *ngFor="let message of messages" class="clearfix">
+                    <div class="message-data" [ngClass]="{ 'text-end': message.senderId !== currentUserId}">
+                      <span class="message-data-time">{{ message.timestamp | date:'shortTime' }}</span>
+                      &nbsp; &nbsp;
+                      <span class="message-data-name">{{ message.senderId !== currentUserId? selectedUser.username : 'You' }}</span>
+                    </div>
+                    <div [ngClass]="{ 'message': true, 'my-message': message.senderId === currentUserId, 'other-message': message.senderId !== currentUserId }">
+                      {{ message.content }}
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </ng-scrollbar>
+            <div class="chat-message clearfix">
+              <div class="form-group">
+                <div class="form-line">
+                  <mat-form-field class="example-full-width" appearance="outline" [hideRequiredMarker]="hideRequiredControl.value">
+                    <input matInput placeholder="Enter text here.." required [(ngModel)]="newMessage">
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="chat-upload">
+                <button mat-mini-fab class="bg-deep-orange" (click)="toggleEmojiPicker()"> <i class="material-icons">insert_emoticon</i></button>
+                <button mat-mini-fab class="bg-deep-orange" (click)="sendMessage()"> <i class="material-icons">send</i></button>
+              </div>
+            </div>
+         <!-- Emoji picker -->
+  <div *ngIf="showEmojiPicker" class="emoji-picker">
+    <emoji-picker (emoji-click)="addEmoji($event.detail.unicode)"></emoji-picker>
+  </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+</section>

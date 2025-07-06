@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="careplan-backend" />
+        <module name="RhLinsoft" />
+        <module name="Gateway" />
+        <module name="Discovery" />
+        <module name="Patient" />
+        <module name="AuthLinsoft" />
+        <module name="Parameterization" />
+        <module name="Config-Server" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Anesthesia" target="17" />
+      <module name="Authentifcation" target="17" />
+      <module name="Authentifcation (1)" target="17" />
+      <module name="Setting" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Anesthesia" options="-parameters" />
+      <module name="AuthLinsoft" options="-parameters" />
+      <module name="Authentifcation (1)" options="-parameters" />
+      <module name="Config-Server" options="-parameters" />
+      <module name="Discovery" options="-parameters" />
+      <module name="Gateway" options="-parameters" />
+      <module name="Parameterization" options="-parameters" />
+      <module name="Patient" options="-parameters" />
+      <module name="RhLinsoft" options="-parameters" />
+      <module name="careplan-backend" options="-parameters" />
+    </option>
+  </component>
+</project>

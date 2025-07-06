@@ -1,0 +1,62 @@
+<nav #navbar class="navbar active">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="#" onClick="return false;" class="navbar-toggle collapsed"
+        (click)="isNavbarCollapsed = !isNavbarCollapsed" aria-expanded="false"></a>
+      <a href="#" onClick="return false;" class="bars" ></a>
+      <a class="navbar-brand" >
+        <img src="assets/images/logo.png" alt="logo" height="120%"/>
+        
+      </a>
+    </div>
+    <div class="collapse navbar-collapse" [ngClass]="isNavbarCollapsed ? '' : 'show'">
+      <ul class="float-start collapse-menu-icon">
+        <li>
+          <button mat-button (click)="callSidemenuCollapse()" class="sidemenu-collapse nav-notification-icons"> <i
+              class="material-icons-outlined icon-color">
+              menu
+            </i></button>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <!-- Full Screen Button -->
+        <li class="fullscreen">
+          <button mat-button class="nav-notification-icons" (click)="callFullscreen()"> <i
+              class="material-icons-outlined icon-color">
+              fullscreen
+            </i></button>
+        </li>
+        <!-- #END# Full Screen Button -->
+
+        
+        <li class="nav-item user_profile">
+          <button mat-button [matMenuTriggerFor]="profilemenu">
+            <div class="chip dropdown-toggle" ngbDropdownToggle class="">
+              <span>{{username}}</span>
+              <img [src]="userImg" class="user_img" width="32" height="32" alt="User"> 
+         
+            </div>
+          </button>
+          <mat-menu #profilemenu="matMenu" class="profile-menu">
+            <div class="noti-list">
+              <div class="menu ">
+                <div class="user_dw_menu">
+                  <button mat-menu-item (click)="openAccountDialog()">
+                    <app-feather-icons [icon]="'user'" [class]="'user-menu-icons'"></app-feather-icons>Account
+                  </button>
+                  <button mat-menu-item (click)="openSettingsDialog()">
+                    <app-feather-icons [icon]="'settings'" [class]="'user-menu-icons'"></app-feather-icons>Settings
+                  </button>
+                  <button mat-menu-item (click)="logout()">
+                    <app-feather-icons [icon]="'log-out'" [class]="'user-menu-icons'"></app-feather-icons>Logout
+                  </button>
+                </div>
+              </div>
+            </div>
+          </mat-menu>
+        </li>
+        <!-- #END# Tasks -->
+      </ul>
+    </div>
+  </div>
+</nav>
