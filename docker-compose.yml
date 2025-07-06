@@ -1,0 +1,102 @@
+version: '3.8'
+services:
+
+  mysql:
+    image: mysql:8
+    container_name: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./mysql-init-files:/docker-entrypoint-initdb.d
+      - mysql_data:/var/lib/mysql
+    networks:
+      - mynetwork
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    restart: always
+    ports:
+      - "8081:80"
+    networks:
+      - mynetwork
+    environment:
+      PMA_HOST: mysql
+      MYSQL_ROOT_PASSWORD: root
+    depends_on:
+      - mysql
+
+  discovery:
+    image: testdeploy-discovery
+    ports:
+      - "8761:8761"
+    networks:
+      - mynetwork
+    depends_on:
+      - mysql
+
+  config-server:
+    image: testdeploy-discovery
+    ports:
+      - "8888:8888"
+    networks:
+      - mynetwork
+    depends_on:
+      - discovery
+    environment:
+      - SPRING_PROFILES_ACTIVE=native
+
+  gateway:
+    image: testdeploy-gateway
+    ports:
+      - "8098:8098"
+    networks:
+      - mynetwork
+    depends_on:
+      - config-server
+      - discovery
+
+  authlinsoft:
+    image: testdeploy-authlinsoft
+    ports:
+      - "8076:8076"
+    networks:
+      - mynetwork
+    depends_on:
+      - config-server
+      - discovery
+      - mysql
+
+  rhlinsoft:
+    image: testdeploy-rhlinsoft
+    ports:
+      - "8090:8090"
+    networks:
+      - mynetwork
+    depends_on:
+      - config-server
+      - discovery
+      - mysql
+
+  frontend:
+    image: testdeploy-frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - gateway
+    networks:
+      - mynetwork
+
+volumes:
+  mysql_data:
+
+networks:
+  mynetwork:
+    driver: bridge

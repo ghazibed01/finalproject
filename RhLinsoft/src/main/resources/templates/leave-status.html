@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Statut de votre demande de congé</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .leaveType {
+            font-size: 24px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        .leaveType.approved {
+            color: #28a745; /* vert */
+        }
+        .leaveType.pending {
+            color: #ffc107; /* orange */
+        }
+        .leaveType.rejected {
+            color: #dc3545; /* rouge */
+        }
+        .details {
+            margin: 20px 0;
+        }
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1>Statut de votre demande de congé</h1>
+    <p>Bonjour <strong th:text="${username}"></strong>,</p>
+    <p>Votre demande de congé du <strong th:text="${startDate}"></strong> au <strong th:text="${endDate}"></strong> :</p>
+
+    <p class="leaveType"
+       th:classappend="
+     ${#strings.toLowerCase(leaveType)} == 'approved' ? ' approved' :
+     (${#strings.toLowerCase(leaveType)} == 'pending' ? ' pending' :
+     (${#strings.toLowerCase(leaveType)} == 'rejected' ? ' rejected' : ''))
+   "
+       th:text="${leaveType}">
+    </p>
+
+    <div class="details">
+        <p><strong>Type de  congé :</strong> <span th:text="${status}"></span></p>
+        <p><strong>Commentaires :</strong> <span th:text="${comments}">Aucun commentaire</span></p>
+    </div>
+
+    <div class="footer">
+        <p>Pour toute question, merci de contacter votre manager.</p>
+    </div>
+</div>
+</body>
+</html>

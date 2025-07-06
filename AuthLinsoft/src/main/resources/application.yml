@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: AuthLinsoft
+  datasource:
+    url: jdbc:mysql://mysql:3306/LinsoftAuthent?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: rhlinsoft@gmail.com
+    password: zwcm ehzh uqoo egji
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
+server:
+  port: 8076
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+
+bezkoder:
+  app:
+    jwtSecret: 9a2f8c4e6b0d71f3e8b925a45747f894a3d6bc70fa8d5e21a15a6d8c3b9a0e7c
+    jwtExpirationMs: 86400000
+    jwtCookieName: SmartV
+
+application:
+  mailing:
+    frontend:
+      activation-url: "http://localhost:4200/authentication"

@@ -1,0 +1,150 @@
+<div class="addContainer">
+  <div class="modalHeader">
+    <div class="editRowModal">
+      <div class="modalHeader clearfix">
+        <div class="modal-about">
+          Add
+        </div>
+      </div>
+    </div>
+    <button mat-icon-button class="modal-close-button" aria-label="Close dialog" (click)="onCancel()">
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <div mat-dialog-content>
+    <form class="register-form m-4" [formGroup]="pmForm" (ngSubmit)="onSubmit()">
+      <!-- First Name and Last Name -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Full Name</mat-label>
+            <input matInput formControlName="username" required>
+            <mat-error *ngIf="pmForm.get('first')?.hasError('required')">First name is required</mat-error>
+          </mat-form-field>
+        </div>
+
+      </div>
+
+      <!-- Email and Mobile -->
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" type="email" required>
+            <mat-error *ngIf="pmForm.get('email')?.hasError('email')">Please enter a valid email</mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Mobile</mat-label>
+            <input matInput formControlName="mobile" type="number" required>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Password and Confirm Password -->
+
+
+
+      <input matInput formControlName="password" type="text" readonly hidden>
+
+
+
+      <!-- Department and Designation -->
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Sélectionner un département</mat-label>
+            <mat-select formControlName="department" (selectionChange)="onDepartmentChange($event.value)" required>
+              <mat-option *ngFor="let dept of departments; let i = index" [value]="i + 1">
+                {{ dept }}
+              </mat-option>
+              <mat-option [value]="'other'">Autre</mat-option>
+            </mat-select>
+          </mat-form-field>
+
+          <!-- Champ input dynamique qui apparait si "Autre" est sélectionné -->
+          <div *ngIf="isOtherDepartment" class="mt-3">
+            <mat-form-field appearance="outline" class="example-full-width">
+              <mat-label>Entrer un nouveau département</mat-label>
+              <input matInput formControlName="otherDepartment" />
+            </mat-form-field>
+          </div>
+
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Joining Date</mat-label>
+            <input matInput [matDatepicker]="picker" formControlName="joiningDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+            <mat-error *ngIf="pmForm.get('joiningDate')?.hasError('required')">
+              Please select date
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!-- Adress Gender -->
+      <div class="row">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput formControlName="address">
+          </mat-form-field>
+        </div>
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width mb-3" appearance="outline">
+            <mat-label>Gender</mat-label>
+            <mat-select formControlName="gender" required>
+              <mat-option [value]="'Male'">
+                Male
+              </mat-option>
+              <mat-option [value]="'Female'">
+                Female
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="pmForm.get('gender')?.hasError('required')">
+              Gender is required
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <!--  More Info  -->
+      <div class="row">
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+          <mat-form-field class="example-full-width" appearance="outline">
+            <mat-label>More Informations</mat-label>
+            <textarea matInput formControlName="information"></textarea>
+          </mat-form-field>
+        </div>
+      </div>
+      <!-- File Upload -->
+      <div class="card-body">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5 ">
+          <label for="fileUpload" class="custom-file-upload">
+            <input type="file" id="fileUpload" (change)="onFileSelected($event)" class="form-control-file"
+              accept=".png,.jpg, .jpeg">
+            <div class="select-file-button">Choose Image</div>
+            <span class="selected-file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+            <span class="selected-file-name" *ngIf="!selectedFile">No file chosen</span>
+          </label>
+        </div>
+      </div>
+      <!-- Bouton pour prévisualiser l'image
+              <button mat-raised-button (click)="openImagePreview()">Preview Image</button> -->
+
+      <!-- Image preview in the component, if needed -->
+      <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" />
+      <!-- Submit and Cancel Buttons -->
+      <div class="row">
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-3">
+          <button class="btn-space" [disabled]="!pmForm.valid" mat-raised-button color="primary">Submit</button>
+          <button type="button" mat-raised-button color="warn" (click)="resetForm()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,200 @@
+.project-list-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+  }
+  
+  table {
+    width: 100%;
+    max-width: 1200px;
+  }
+  
+  .mat-elevation-z8 {
+    box-shadow: 0 8px 16px -8px rgba(0, 0, 0, 0.2), 0 0 8px 0 rgba(0, 0, 0, 0.1);
+  }
+  
+  th.mat-header-cell,
+  td.mat-cell {
+    text-align: center;
+  }
+  
+  td.mat-cell {
+    display: flex;
+    justify-content: space-between;
+    align-items: center; /* Align items vertically */
+  }
+  
+  .mat-icon-button {
+    margin: 0 5px;
+  }
+  
+  .mat-chip-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .mat-chip {
+    margin: 4px;
+    font-weight: bold; /* Bold text for visibility */
+    color: white; /* Default text color */
+    height: 32px; /* Set fixed height */
+    display: flex; /* Align items horizontally */
+    align-items: center; /* Center content vertically */
+    border-radius: 16px; /* More rounded for consistency */
+    padding: 0 12px; /* Adjust padding for even spacing */
+    box-sizing: border-box; /* Include padding in height/width */
+  }
+  
+  /* Chip colors */
+  .chip-red {
+    background-color: #f2d5d5 !important; /* Light Red */
+  }
+  
+  .chip-pink {
+    background-color: #f9e6f5 !important; /* Light Pink */
+  }
+  
+  .chip-blue {
+    background-color: #b8d1f9 !important; /* Light Blue */
+  }
+  
+  .chip-green {
+    background-color: #ddf5e4 !important; /* Light Green */
+    color: black; /* Adjust text color for visibility */
+  }
+  
+  .chip-orange {
+    background-color: #f2e6d5 !important; /* Light Orange */
+    color: black; /* Adjust text color for visibility */
+  }
+  
+  .chip-purple {
+    background-color: #b39ddb !important; /* Light Purple */
+  }
+  
+  .chip-yellow {
+    background-color: #ffff8d !important; /* Light Yellow */
+    color: black; /* Adjust text color for visibility */
+  }
+  
+  /* Style for equal size of badges and buttons */
+  .team-name,
+  .team-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px; /* Equal width */
+    height: 30px; /* Fixed height */
+    padding: 0 8px; /* Adjust padding */
+    border-radius: 8px; /* Rounded corners */
+    font-size: 14px; /* Font size */
+    box-sizing: border-box; /* Include padding in height/width */
+    margin: 2px; /* Space between elements */
+  }
+  
+  /* Style for badges */
+  .badge-solid-purple {
+    background-color: #e0c3fc; /* Light purple background */
+    color: #7e57c2; /* Dark purple text */
+  }
+  
+  .badge-solid-green {
+    background-color: #d0f0c0; /* Light green background */
+    color: #388e3c; /* Dark green text */
+  }
+  
+  /* Button styles */
+  .team-button {
+    background-color: #e0f7fa; /* Pale green background */
+    border: none; /* No border */
+    color: #000000; /* Dark green text */
+    cursor: pointer; /* Pointer cursor */
+    box-shadow: none; /* Remove default shadow */
+    transition: background-color 0.3s ease; /* Smooth transition */
+  }
+  
+  .team-button mat-icon {
+    font-size: 20px; /* Icon size */
+  }
+  
+  /* Button hover state */
+  .team-button:hover {
+    background-color: #dce775; /* Hover background color */
+  }
+  /* Styles for the status column */
+  
+  .in-progress,
+  .done {
+    display: inline-flex; /* Use inline-flex for horizontal alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: 100px; /* Fixed width for consistency */
+    height: 30px; /* Fixed height */
+    padding: 0 12px; /* Adjust padding for even spacing */
+    border-radius: 6px; /* Rounded corners for consistency */
+    font-size: 14px; /* Font size */
+    box-sizing: border-box; /* Include padding in height/width */
+    margin: 0 8px; /* Space between elements */
+    border: none; /* Remove border */
+    color: white; /* Text color for readability */
+    cursor: pointer; /* Add cursor to indicate clickable */
+  }
+  
+  /* In Progress Style */
+  .in-progress {
+    background-color: #f5f5ce !important; /* Light blue */
+    color: #000; /* Text color */
+  }
+  
+  /* Done Style */
+  .done {
+    background-color: #d2f5dd; /* Light green */
+    color: #000; /* Text color */
+  }
+  
+  .done-button:hover {
+    background-color: #8aad8b; /* Darker green on hover */
+  }
+  
+  /* Style for Task button */
+  .task-button,.done-button,.delete-button {
+    background-color: #e0e0e0; /* Simple grey background */
+    color: black; /* Black icon color */
+    display: inline-flex; /* Use inline-flex for horizontal alignment */
+    align-items: center; /* Center content vertically */
+    justify-content: center; /* Center content horizontally */
+    width: 50px; /* Fixed width for consistency */
+    height: 30px; /* Fixed height */
+    padding: 0 12px; /* Adjust padding for even spacing */
+    border-radius: 6px; /* Rounded corners for consistency */
+    font-size: 14px; /* Font size */
+    box-sizing: border-box; /* Include padding in height/width */
+    margin: 0 8px; /* Space between elements */
+    border: none; /* Remove border */
+    cursor: pointer; /* Add cursor to indicate clickable */
+  }
+  
+  .task-button:hover {
+    background-color: #dbd5d5; /* Slightly darker grey on hover */
+  }
+  .delete-button :hover {
+    background-color: #9b6464; /* Slightly darker grey on hover */
+  }
+  /* Styles for the table data cells that are clickable */
+  td.clickable {
+    cursor: pointer; /* Changes the cursor to a pointer to indicate it's clickable */
+    color: #1565c0; /* Deep blue color, adjust as per your theme */
+    transition: color 0.3s ease; /* Smooth transition for color change */
+  }
+  
+  td.clickable:hover {
+    text-decoration: underline; /* Underlines text on hover */
+    color: #0d47a1; /* A darker shade of blue on hover */
+  }
+  td.clickable:focus {
+    outline: none; /* Removes the default focus outline */
+    box-shadow: 0 0 0 2px rgba(21, 101, 192, 0.5); /* Adds a custom focus outline */
+    border-radius: 4px; /* Optional: adds rounded corners to the focus outline */
+  }

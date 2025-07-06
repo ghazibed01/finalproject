@@ -1,0 +1,19 @@
+<!-- File Upload -->
+<div class="card-body">
+    <h1>New Profile Image</h1>
+    <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 mb-5 ">
+        <label for="fileUpload" class="custom-file-upload">
+          <input type="file" id="fileUpload" (change)="onFileSelected($event)" class="form-control-file" accept=".png,.jpg, .jpeg">
+          <div class="select-file-button">Choose Image</div>
+          <span class="selected-file-name" *ngIf="selectedFile">{{ selectedFile.name }}</span>
+          <span class="selected-file-name" *ngIf="!selectedFile">No file chosen</span>
+        </label>
+      
+   </div>
+
+   
+   
+   <!-- Image preview in the component, if needed -->
+   <img *ngIf="imagePreview" [src]="imagePreview" alt="Image Preview" />
+   <button mat-raised-button (click)="onSubmit()">Update Image</button>
+   </div>

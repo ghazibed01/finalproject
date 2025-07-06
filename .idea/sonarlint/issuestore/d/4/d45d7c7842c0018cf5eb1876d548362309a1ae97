@@ -1,0 +1,12 @@
+
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ÑÆÃƒ
+h	java:S116"SRename this field "UserName" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(È”¸„
+m	java:S116"XRename this field "Justification" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°àÂ…
+t	java:S115""ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ì÷”ˆÿÿÿÿÿ
+o	java:S115#"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ðÿûÔ
+^
+java:S1128"HRemove this unused import 'com.fasterxml.jackson.annotation.JsonIgnore'.(þ‘‹„
+C
+java:S1128	".Remove this unused import 'java.util.HashSet'.(Ê‚êX
+E
+java:S1128"*Remove this unused import 'java.util.Set'.(ö²„¤þÿÿÿÿ

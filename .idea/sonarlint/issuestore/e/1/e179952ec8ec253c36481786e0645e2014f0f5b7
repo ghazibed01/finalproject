@@ -1,0 +1,24 @@
+
+h	java:S112Ã"FDefine and throw a dedicated exception instead of using a generic one.(ôÊØÖøÿÿÿÿ8¼¹¤Âğ2
+}
+java:S1192"ZDefine a constant instead of duplicating this literal "Error: Role is not found." 4 times.(ÉÿÊ–ùÿÿÿÿ8¿¹¤Âğ2
+k
+java:S1192ˆ"HDefine a constant instead of duplicating this literal "message" 3 times.(Ó·şÙüÿÿÿÿ8¿¹¤Âğ2
+K
+java:S5411Ú"(Use a primitive boolean expression here.(­ı“ùÿÿÿÿ8ÒïºÆğ2
+F
+java:S5411÷"(Use a primitive boolean expression here.(‡Ö…²8ÓïºÆğ2
+F
+java:S5411ÿ"(Use a primitive boolean expression here.(Œ‰ÓŒ8ÓïºÆğ2
+{	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(¾Ø¼‰üÿÿÿÿ8Å¹¤Âğ2
+D
+java:S1452Ù"&Remove usage of generic wildcard type.(—­è€8º¤Âğ2
+p
+java:S6204è"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(ª™¨¹8ÌñºÆğ2
+I
+java:S1452ö"&Remove usage of generic wildcard type.(›ÁÏØşÿÿÿÿ8¦º¤Âğ2
+C
+java:S3457‹"%String contains no format specifiers.(¢ÀûÓ8ÓñºÆğ2
+^	java:S125­"<This block of commented-out lines of code should be removed.(áòõÃıÿÿÿÿ8¯º¤Âğ2
+O
+java:S1135¿"2Complete the task associated to this TODO comment.(”ÔÇ;8²º¤Âğ2

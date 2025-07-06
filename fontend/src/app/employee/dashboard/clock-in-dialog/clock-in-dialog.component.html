@@ -1,0 +1,17 @@
+<div class="dialog-container">
+  <h2 mat-dialog-title class="text-center">Add clock-in</h2>
+  <mat-dialog-content>
+    <form [formGroup]="punchForm" class="d-flex flex-column align-items-center">
+      <mat-form-field appearance="fill" class="w-75">
+        <mat-label>Date</mat-label>
+          <input type="datetime-local" formControlName="time" class="form-control">
+      </mat-form-field>
+    </form>
+  </mat-dialog-content>
+
+  <mat-dialog-actions align="center" class="mt-3">
+    <button mat-icon-button color="primary" (click)="onSubmit()" [disabled]="punchForm.invalid" class="fingerprint-btn">
+      <mat-icon>fingerprint</mat-icon>
+    </button>
+  </mat-dialog-actions>
+</div>

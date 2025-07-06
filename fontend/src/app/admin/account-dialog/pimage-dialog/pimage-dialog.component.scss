@@ -1,0 +1,31 @@
+
+.custom-file-upload input[type="file"] {
+    display: none;
+  }
+.select-file-button {
+    cursor: pointer;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3c8bc7;
+    color: #fff;
+    border-radius: 5px;
+}
+  
+.select-file-button:hover {
+    background-color: #71b6eb;
+}
+.upload-buttons {
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    padding: 3px;
+  }
+.border-bottom {
+    border-bottom: 1px solid #ccc;
+}
+.selected-file-name {
+    padding-left: 10px; /* Ajoutez l'espace horizontal ici */
+  }
+  
+  
+  
+  

@@ -1,0 +1,32 @@
+spring:
+  application:
+    name: RhLinesoft
+  datasource:
+    url: jdbc:mysql://mysql:3306/LinesoftRH?createDatabaseIfNotExist=true&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=UTC
+    username: root
+    password: root
+
+  jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: rhlinsoft@gmail.com
+    password: zwcm ehzh uqoo egji
+    properties:
+      mail.smtp.auth: true
+      mail.smtp.starttls.enable: true
+
+  config:
+    import: optional:configserver:http://localhost:8888
+
+server:
+  port: 8090
+
+springdoc:
+  default-produces-media-type: application/json
