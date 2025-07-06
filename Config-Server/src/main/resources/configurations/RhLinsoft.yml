@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: RhLinsoft
+  datasource:
+    url: jdbc:mysql://localhost:3306/RhLinsoft?createDatabaseIfNotExist=true&useSSL=false
+    username: root
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+server:
+  port: 8090
+#application:
+#  config:
+#    Analyses-url: http://localhost:8090/bioanalyses
+#    Surigicalprocedure-url: http://localhost:8090/procedures
+#    Patient-url: http://localhost:8091/patients
+#
+
+springdoc:
+  default-produces-media-type: application/json
+
+
+directory: ./
+
