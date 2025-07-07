@@ -1,7 +1,7 @@
--- Crée l'utilisateur si nécessaire
+-- Crée l'utilisateur si besoin
 CREATE USER IF NOT EXISTS 'root'@'%' IDENTIFIED BY 'root';
 
--- Donne tous les privilèges à root@'%'
+-- Donne tous les privilèges nécessaires
 GRANT ALL PRIVILEGES ON *.* TO 'root'@'%' WITH GRANT OPTION;
 
 -- Supprime les limitations
@@ -14,6 +14,6 @@ WITH MAX_QUERIES_PER_HOUR 0
 -- Applique les changements
 FLUSH PRIVILEGES;
 
--- Crée les bases de données si elles n'existent pas
+-- Crée les bases
 CREATE DATABASE IF NOT EXISTS LinesoftRH;
 CREATE DATABASE IF NOT EXISTS LinsoftAuthent;
